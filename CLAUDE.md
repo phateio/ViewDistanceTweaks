@@ -15,6 +15,31 @@ This document provides comprehensive information about the ViewDistanceTweaks co
 **Java Version**: 21
 **Target API**: Paper 1.21-R0.1-SNAPSHOT
 
+## Contributing Guidelines
+
+**IMPORTANT**: This project follows standardized contributing guidelines maintained in `CONTRIBUTING.md`.
+
+**Source of Truth**: https://denpaio.github.io/CONTRIBUTING.md
+
+**Before any development work**:
+1. Verify `CONTRIBUTING.md` is up-to-date with the source:
+   ```bash
+   curl -s https://denpaio.github.io/CONTRIBUTING.md | diff CONTRIBUTING.md -
+   ```
+2. If outdated, sync to latest version:
+   ```bash
+   curl -o CONTRIBUTING.md https://denpaio.github.io/CONTRIBUTING.md
+   ```
+3. Submit a PR with the updated file if changes are detected
+
+**Key Standards from CONTRIBUTING.md**:
+- **Java Style**: Follow [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
+- **Commit Messages**: Use [Conventional Commits](https://www.conventionalcommits.org/) specification
+  - Format: `type(scope): description`
+  - Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, etc.
+- **Documentation**: English preferred, self-documenting code over redundant comments
+- **Testing**: Ensure all tests pass before committing
+
 ## Repository Structure
 
 ```
@@ -23,6 +48,8 @@ ViewDistanceTweaks/
 │   └── workflows/
 │       └── build.yml              # CI/CD workflow for building the plugin
 ├── gradle/                        # Gradle wrapper files
+├── CLAUDE.md                      # Developer guide for AI assistants
+├── CONTRIBUTING.md                # Contributing guidelines (synced from source)
 ├── src/
 │   └── main/
 │       ├── java/com/froobworld/viewdistancetweaks/
@@ -222,11 +249,14 @@ Schedules repeating tasks that:
 
 ## Coding Conventions
 
+**See `CONTRIBUTING.md` for complete style guidelines and standards.**
+
 ### Java Standards
 
 - **Java Version**: 21 (language level and toolchain)
 - **API Target**: Paper 1.21-R0.1-SNAPSHOT
 - **Encoding**: UTF-8 for all source files and Javadoc
+- **Style Guide**: Follow [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html) as specified in `CONTRIBUTING.md`
 
 ### Code Organization
 
@@ -261,6 +291,19 @@ Schedules repeating tasks that:
 - Managers provide getter methods for access from other components
 
 ## Important Considerations for AI Assistants
+
+### 0. Contributing Guidelines Compliance
+
+**CRITICAL**: Before starting any work, verify `CONTRIBUTING.md` is up-to-date with the source of truth:
+```bash
+curl -s https://denpaio.github.io/CONTRIBUTING.md | diff CONTRIBUTING.md -
+```
+
+If outdated, MUST update it first via PR before proceeding with other changes. All code must follow:
+- [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
+- [Conventional Commits](https://www.conventionalcommits.org/) specification for commit messages
+- Self-documenting code principles
+- Testing requirements as specified in `CONTRIBUTING.md`
 
 ### 1. Dependency Management
 
@@ -316,7 +359,10 @@ The plugin supports `/vdt reload` for config changes. When adding features:
 ### 8. Git Workflow
 
 **Branch Naming**: When working on features, use branches prefixed with `claude/` and include session ID
-**Commits**: Use clear, descriptive commit messages
+**Commits**: Follow [Conventional Commits](https://www.conventionalcommits.org/) specification (see `CONTRIBUTING.md`)
+  - Format: `type(scope): description`
+  - Example: `feat(limiter): add reactive mode for view distance`, `fix(config): correct default MSPT threshold`
+  - Common types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
 **Build Verification**: Ensure GitHub Actions workflow passes before merging
 
 ### 9. Paper API Usage
@@ -419,11 +465,12 @@ Key log points:
 
 ## Support & Contribution
 
+- **Contributing**: See `CONTRIBUTING.md` for style guidelines and workflow
 - **Issues**: Report on GitHub repository
 - **Plugin Page**: https://www.spigotmc.org/resources/75164/
 - **Author**: froobynooby
 
 ---
 
-*Last Updated: 2025-11-15*
-*Based on commit: 4612810 (Update README)*
+*Last Updated: 2025-11-27*
+*Based on commit: 508cb43 (docs: add CONTRIBUTING.md syncing strategy)*
